@@ -1,7 +1,7 @@
 # 02. Arquitectura y topología
 
 ## Topologia 
-![Topología](images/01-topologia-general.png)
+![Topología](../images/01-topologia-general.png)
 
 ![Topología lógica](diagrams/topologia-logica.svg)
 
