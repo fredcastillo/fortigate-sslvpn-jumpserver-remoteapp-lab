@@ -24,6 +24,7 @@ En la terminal del contenedor `CLIENTE-FORTICLIENT` se utiliza la utilidad prein
 ```bash
 lab-vpn connect
 ```
+![labvpn](../images/03-vpn-rutas-cliente.png)
 
 Se introducen las credenciales en el prompt interactivo. Debe mantenerse esa terminal abierta mientras se utilizan los recursos que dependen del túnel.
 
