@@ -1,14 +1,20 @@
-# FortiGate SSL-VPN, Jump Server & Role-Based RemoteApp
+<h1 align="center">🔐 FortiGate SSL-VPN, Jump Server & Role-Based RemoteApp</h1>
+
+<p align="center">
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Lab-GNS3-7d5fff?style=for-the-badge" alt="GNS3"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Firewall-FortiGate%20v7.0.9-e11d48?style=for-the-badge" alt="FortiGate"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/VPN-SSL--VPN%20Client--to--Site-9C27B0?style=for-the-badge" alt="SSL-VPN"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Jump%20Server-Windows%20RDS%20%7C%20RemoteApp-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Jump Server"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Allowed%20Services-HTTPS%20%7C%20RDP%20%7C%20SSH-4CAF50?style=for-the-badge" alt="Allowed Services"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Access%20Model-Role--Based-FF6F00?style=for-the-badge" alt="Role-Based"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge" alt="Status"></a>
+</p>
 
 <p align="center"><a href="https://youtu.be/XtP_YsM0tjs"><img src="https://img.youtube.com/vi/XtP_YsM0tjs/maxresdefault.jpg" alt="Watch the lab demo" width="900"></a></p>
 
-**Network Security Lab · GNS3 · FortiOS 7.0.9 · Cisco IOS · RDS/RemoteApp**
+> **Network Security Lab · GNS3 · FortiOS 7.0.9 · Cisco IOS · RDS/RemoteApp**
 
 This GNS3 lab demonstrates controlled remote access through FortiGate SSL-VPN, a Windows Jump Server, and role-based Remote Desktop Services/RemoteApp. User, web-server and jump-server networks are separated. FortiGate policies constrain VPN access to the Jump Server and limit traffic from Jump to Web to HTTPS, RDP and SSH.
-
-**Physical/logical path:** `CLIENTE-FORTICLIENT` and `BROWSER-PC` → `Switch-A` (VLAN 10) → `R1-CISCO` → `Router-ISP` → FortiGate `port1`. R1 is the user gateway (`10.21.75.1/25`); the ISP router provides the two simulated WAN links. The user LAN is not connected directly to the ISP or FortiGate. On the protected side, FortiGate `port2` connects to `WEB-SERVER` (`10.21.75.130/29`) and `port3` connects to `JUMP-SRV` (`10.21.75.138/29`). The dashed VPN path in the diagram is an SSL-VPN overlay carried over the physical/logical underlay, not a direct cable.
-
-**Video:** [YouTube demonstration](https://youtu.be/XtP_YsM0tjs)
 
 ## Security goals
 
@@ -21,6 +27,7 @@ This GNS3 lab demonstrates controlled remote access through FortiGate SSL-VPN, a
 
 ## Architecture
 
+![topology](images/01-topologia-general.png)
 ![Logical topology](docs/diagrams/topologia-logica.svg)
 
 ## Main components
@@ -34,6 +41,8 @@ This GNS3 lab demonstrates controlled remote access through FortiGate SSL-VPN, a
 | CLIENTE-FORTICLIENT | Linux VPN client | Observed VPN address `10.212.134.200` on `ppp0`. |
 | JUMP-SRV | Bastion, AD DS/DNS, RDS/RemoteApp | `10.21.75.138/29`; domain `jumpserver.lab`; collection `QuickSessionCollection`. |
 | WEB-SERVER | Web/Caja server and service-test target | Ubuntu 22.04.5 LTS; `10.21.75.130/29`; HTTPS, SSH and XRDP listeners observed. |
+
+**Physical/logical path:** `CLIENTE-FORTICLIENT` and `BROWSER-PC` → `Switch-A` (VLAN 10) → `R1-CISCO` → `Router-ISP` → FortiGate `port1`. R1 is the user gateway (`10.21.75.1/25`); the ISP router provides the two simulated WAN links. The user LAN is not connected directly to the ISP or FortiGate. On the protected side, FortiGate `port2` connects to `WEB-SERVER` (`10.21.75.130/29`) and `port3` connects to `JUMP-SRV` (`10.21.75.138/29`). The dashed VPN path in the diagram is an SSL-VPN overlay carried over the physical/logical underlay, not a direct cable.
 
 ## Addressing reference
 
