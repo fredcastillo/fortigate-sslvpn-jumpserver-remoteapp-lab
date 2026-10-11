@@ -1,4 +1,4 @@
-<h1 align="center">🔐 SSL-VPN FortiGate, Jump Server y RemoteApp por Roles</h1>
+<h1 align="center">🔐 SSL-VPN FortiGate, Jump Server y RemoteApp Role-Based</h1>
 
 <p align="center">
   <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Laboratorio-GNS3-7d5fff?style=for-the-badge" alt="GNS3"></a>
