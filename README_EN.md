@@ -1,7 +1,6 @@
-<p align="center"><a href="https://youtu.be/XtP_YsM0tjs"><img src="https://img.youtube.com/vi/XtP_YsM0tjs/maxresdefault.jpg" alt="Watch the lab demo" width="900"></a></p>
-<p align="center"><a href="https://youtu.be/XtP_YsM0tjs"><strong>▶ WATCH THE DEMONSTRATION VIDEO</strong></a></p>
-
 # FortiGate SSL-VPN, Jump Server & Role-Based RemoteApp
+
+<p align="center"><a href="https://youtu.be/XtP_YsM0tjs"><img src="https://img.youtube.com/vi/XtP_YsM0tjs/maxresdefault.jpg" alt="Watch the lab demo" width="900"></a></p>
 
 **Network Security Lab · GNS3 · FortiOS 7.0.9 · Cisco IOS · RDS/RemoteApp**
 
@@ -95,6 +94,8 @@ The RDS collection is `QuickSessionCollection`. RD Web Client URL: `https://JUMP
 | 9 | User DHCP leases | [`images/09-dhcp-usuarios.png`](images/09-dhcp-usuarios.png) | 04:10 |
 | 10 | Web server listeners | [`images/10-servicios-webserver.png`](images/10-servicios-webserver.png) | 04:55 |
 
+---
+
 ## Verification examples
 
 From JUMP-SRV (PowerShell):
@@ -121,6 +122,8 @@ TCP success proves connectivity to a port from that source; it does not by itsel
 The repository includes the FortiGate policy output shared during the lab and a separate final-state inventory incorporating the later GUI confirmation that `WAN_to_WEBSERVER_HTTPS` was disabled. The final complete exports for the routers, switch and both servers should be obtained from the actual running devices and placed in `running-configs/` before final submission.
 
 Sanitize passwords, PSKs, private keys, tokens, sensitive hashes and other authentication material. Never commit unreviewed binary backups.
+
+---
 
 ## Technical documentation index
 
@@ -156,12 +159,15 @@ Sanitize passwords, PSKs, private keys, tokens, sensitive hashes and other authe
 - [GNS3 client persistence and startup](docs/29-persistencia-y-arranque-de-clientes.md)
 - [SSH control and role separation](docs/30-control-de-ssh-y-separacion-de-roles.md)
 
+---
 ## Academic information
 
 - **Student:** Fred Sneyder Castillo Apolinar
 - **Student ID:** 2025-2175
 - **Program:** Information Security Technologist
 - **Institution:** ITLA
+
+---
 
 ## License
 
