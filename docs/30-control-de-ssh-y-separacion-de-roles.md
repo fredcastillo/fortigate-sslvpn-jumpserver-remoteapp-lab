@@ -47,14 +47,9 @@ Para la verificación de TCP/22 desde Jump, usa PowerShell en JUMP-SRV:
 ```powershell
 Test-NetConnection 10.21.75.130 -Port 22
 ```
-
-El resultado debe interpretarse junto con los logs de FortiGate. Esta prueba comprueba la conectividad desde Jump, no desde el endpoint STD.
-
 ## 30.5 Diferencia entre catálogo y acceso directo
 
 - `user.std` debe ver solo `Caja-Web` en RD Web.
 - `user.priv` debe ver `Caja-Web`, `PuTTY` y `Conexión a Escritorio remoto`.
 - El acceso SSH desde el endpoint estándar debe rechazarse por una regla explícita de red.
 - El SSH desde Jump a Web permanece autorizado, porque es uno de los tres servicios requeridos.
-
-No reutilices el nombre de usuario de RemoteApp como si automáticamente fuera el origen IP que FortiGate observa en una conexión TCP. La red y la sesión RDS son capas distintas; debe documentarse el punto donde cada control actúa.
