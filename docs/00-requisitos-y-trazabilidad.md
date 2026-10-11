@@ -35,7 +35,3 @@ Este documento relaciona la rúbrica de la práctica con los elementos de la top
 
 La administración y las modificaciones del FortiGate se realizan por GUI según la rúbrica. Los comandos CLI incluidos en el repositorio son principalmente para inspección, validación o exportación de datos; no sustituyen la demostración por GUI.
 
-
-## Ubicación de capturas
-
-Todas las capturas PNG se guardan en la carpeta **`images/` ubicada en la raíz del repositorio**, fuera de `docs/`. Las referencias desde los archivos de documentación usan `../images/archivo.png`; las referencias desde el README usan `images/archivo.png`. No debe crearse una segunda carpeta `docs/images/`.
