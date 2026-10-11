@@ -11,5 +11,3 @@ config firewall vip
     next
 end
 FortiGate-B #
-
-El objeto VIP se conserva; el usuario confirmó que la política `WAN_to_WEBSERVER_HTTPS` fue deshabilitada posteriormente desde la GUI.
