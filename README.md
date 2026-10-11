@@ -1,19 +1,19 @@
+
+# FortiGate SSL-VPN, Jump Server & Role-Based RemoteApp
+
+> **Laboratorio de Seguridad de Redes · GNS3 · FortiOS 7.0.9 · Cisco IOS · Windows Server RDS**
+
 <p align="center">
   <a href="https://youtu.be/XtP_YsM0tjs">
     <img src="https://img.youtube.com/vi/XtP_YsM0tjs/maxresdefault.jpg" alt="Ver la demostración de FortiGate SSL-VPN, Jump Server y RemoteApp" width="960">
   </a>
 </p>
-<p align="center"><a href="https://youtu.be/XtP_YsM0tjs"><strong>▶ VER VIDEO DEMOSTRATIVO EN YOUTUBE</strong></a></p>
 
-# FortiGate SSL-VPN, Jump Server & Role-Based RemoteApp
-
-**Laboratorio de Seguridad de Redes · GNS3 · FortiOS 7.0.9 · Cisco IOS · Windows Server RDS**
-
-Este proyecto documenta una infraestructura de acceso remoto controlado. El cliente establece SSL-VPN con FortiGate, utiliza el Jump Server como punto de acceso administrado y obtiene un catálogo RemoteApp según su grupo. El tráfico iniciado desde Jump Server hacia el servidor web se restringe a HTTPS, RDP y SSH; una regla posterior deniega los demás servicios entre esos segmentos.
-
-> **Demostración:** [YouTube — FortiGate SSL-VPN, Jump Server & Role-Based RemoteApp](https://youtu.be/XtP_YsM0tjs)
+---
 
 ## 1. Objetivo del laboratorio
+
+Este proyecto documenta una infraestructura de acceso remoto controlado. El cliente establece SSL-VPN con FortiGate, utiliza el Jump Server como punto de acceso administrado y obtiene un catálogo RemoteApp según su grupo. El tráfico iniciado desde Jump Server hacia el servidor web se restringe a HTTPS, RDP y SSH; una regla posterior deniega los demás servicios entre esos segmentos.
 
 Diseñar, configurar y demostrar una topología en GNS3 que cumpla los requisitos de Seguridad de Redes:
 
@@ -25,6 +25,7 @@ Diseñar, configurar y demostrar una topología en GNS3 que cumpla los requisito
 - Conservar evidencia y procedimientos reproducibles para la topología, direccionamiento, políticas, VLAN/DHCP y servicios.
 
 ## 2. Arquitectura
+![Topología](images/01-topologia-general.png)
 
 ![Topología lógica](docs/diagrams/topologia-logica.svg)
 
@@ -170,13 +171,9 @@ Lee `scripts/README.md` antes de ejecutar. El script `maintenance/05-recuperar-w
 ├── scripts/                    # verificaciones, mantenimiento y exportación
 ├── running-configs/             # capturas y exportaciones por dispositivo
 ├── LICENSE
-├── CHANGELOG.md
-└── ENTREGA_FredCastillo_20252175_P4.txt
 ```
 
 ### Las diez capturas planificadas
-
-Sobrescribe cada PNG de `images/` con una captura real del video, conservando el nombre. Las referencias relativas ya están en README y en [13 — Imágenes y evidencia](docs/13-imagenes-y-evidencia.md).
 
 | # | Captura | Archivo | Tiempo sugerido |
 |---:|---|---|---:|
@@ -191,15 +188,9 @@ Sobrescribe cada PNG de `images/` con una captura real del video, conservando el
 | 9 | DHCP usuarios | `images/09-dhcp-usuarios.png` | 04:10 |
 | 10 | Servicios Web Server | `images/10-servicios-webserver.png` | 04:55 |
 
-Los diez archivos PNG incluidos en el paquete son marcadores visuales para indicar qué capturar; no se presentan como evidencia real. Los tres diagramas SVG se mantienen separados en `docs/diagrams/` y no cuentan como capturas.
+Los diez archivos PNG incluidos en el paquete son marcadores visuales para indicar qué capturar; no se presentan como evidencia real. Los tres diagramas SVG se mantienen separados en `docs/diagrams/`.
 
-## 10. Configuraciones reales y seguridad al publicar
-
-`running-configs/fortigate/` contiene la salida de políticas previa a la desactivación de la política WAN y el objeto VIP, además de un resumen del estado posterior confirmado. Para la entrega definitiva se recomienda exportar una nueva salida del estado final y adjuntarla junto con los running-configs reales de Cisco/R1/ISP y los datos de red/RDS/WEB Server pertinentes.
-
-Antes de hacer push a GitHub, elimina contraseñas, PSK, claves privadas, PFX/P12, tokens, cookies, hashes sensibles y cualquier archivo de respaldo binario sin revisar. Conserva en el repositorio los nombres de interfaces, subredes y políticas que sean necesarios para entender el diseño.
-
-## 11. Documentación técnica por tema
+## 10. Documentación técnica por tema
 
 - [00 — Requisitos y trazabilidad](docs/00-requisitos-y-trazabilidad.md)
 - [01 — Propósito, alcance y diseño](docs/01-proposito-y-alcance.md)
@@ -233,11 +224,11 @@ Antes de hacer push a GitHub, elimina contraseñas, PSK, claves privadas, PFX/P1
 - [29 — Persistencia y arranque de clientes GNS3](docs/29-persistencia-y-arranque-de-clientes.md)
 - [30 — Control de SSH y separación de roles](docs/30-control-de-ssh-y-separacion-de-roles.md)
 
-## 12. Flujo de trabajo recomendado
+## 11. Flujo de trabajo recomendado
 
 El orden recomendado para reproducir o revisar el laboratorio es: (1) confirmar direccionamiento y topología en GNS3; (2) inspeccionar las interfaces de FortiGate en GUI; (3) verificar el split tunneling y la sesión SSL-VPN; (4) comprobar los catálogos RemoteApp por usuario; (5) probar desde Jump los tres servicios autorizados; (6) comprobar la regla de denegación para el resto de servicios; (7) recopilar evidencias desde Cisco/R1/ISP y Web Server; y (8) exportar y sanitizar las configuraciones finales. Los capítulos 22–28 detallan estos procedimientos por equipo y por flujo.
 
-## 13. Trazabilidad de la asignación
+## 12. Trazabilidad de la asignación
 
 La matriz de requisitos se encuentra en [00 — Requisitos y trazabilidad](docs/00-requisitos-y-trazabilidad.md). Los detalles de topología, políticas, SSL-VPN, RDS, servicios, pruebas, operación, running-configs y entregables se distribuyen en los documentos numerados dentro de `docs/`.
 
@@ -251,3 +242,15 @@ La matriz de requisitos se encuentra en [00 — Requisitos y trazabilidad](docs/
 ## Licencia y uso
 
 Laboratorio académico. Utiliza los scripts solo en equipos/redes propios o donde tengas autorización. Consulta `LICENSE`.
+
+---
+
+## 👨‍💻 Autor
+
+**Fred Castillo**  
+*Estudiante de Tecnólogo en Seguridad Informática* 
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Fred%20Castillo-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/fredcastillo11/)
+[![GitHub](https://img.shields.io/badge/GitHub-fredcastillo-100000?style=for-the-badge&logo=github)](https://github.com/fredcastillo)
+
+---
