@@ -240,7 +240,7 @@ El orden recomendado para reproducir o revisar el laboratorio es: (1) confirmar 
 
 La matriz de requisitos se encuentra en [00 — Requisitos y trazabilidad](docs/00-requisitos-y-trazabilidad.md). Los detalles de topología, políticas, SSL-VPN, RDS, servicios, pruebas, operación, running-configs y entregables se distribuyen en los documentos numerados dentro de `docs/`.
 
-## 14. Datos académicos
+## 13. Datos académicos
 
 - **Estudiante:** Fred Sneyder Castillo Apolinar
 - **Matrícula:** 2025-2175
