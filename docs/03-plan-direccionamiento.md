@@ -24,4 +24,6 @@ El rango `203.0.113.0/24` está reservado para documentación (TEST-NET-3), por 
 
 ## DHCP de usuarios
 
+![DHCP](../images/09-dhcp-usuarios.png)
+
 La configuración de la LAN de usuarios se asocia a VLAN 10 con gateway R1 `.1`. El rango DHCP informado de la topología base era `10.21.75.10–10.21.75.100`. La documentación final de la práctica debe conservar la salida actual de `show ip dhcp binding` para demostrar qué dirección recibió cada endpoint; no deducir la identidad STD/PRIV solo por una IP si no está documentada la asociación.
