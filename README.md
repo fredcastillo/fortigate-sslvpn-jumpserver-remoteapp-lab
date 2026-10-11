@@ -1,7 +1,14 @@
+<h1 align="center">🔐 SSL-VPN FortiGate, Jump Server y RemoteApp por Roles</h1>
 
-# FortiGate SSL-VPN, Jump Server & Role-Based RemoteApp
-
-> **Laboratorio de Seguridad de Redes · GNS3 · FortiOS 7.0.9 · Cisco IOS · Windows Server RDS**
+<p align="center">
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Laboratorio-GNS3-7d5fff?style=for-the-badge" alt="GNS3"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Firewall-FortiGate%20v7.0.9-e11d48?style=for-the-badge" alt="FortiGate"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/VPN-SSL--VPN%20Cliente--a--Sitio-9C27B0?style=for-the-badge" alt="SSL-VPN"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Jump%20Server-Windows%20RDS%20%7C%20RemoteApp-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Jump Server"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Servicios%20Permitidos-HTTPS%20%7C%20RDP%20%7C%20SSH-4CAF50?style=for-the-badge" alt="Servicios Permitidos"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Modelo%20de%20Acceso-Basado%20en%20Roles-FF6F00?style=for-the-badge" alt="Basado en Roles"></a>
+  <a href="https://github.com/fredcastillo/fortigate-ssl-vpn-jump-remoteapp"><img src="https://img.shields.io/badge/Estado-Completado-brightgreen?style=for-the-badge" alt="Estado"></a>
+</p>
 
 <p align="center">
   <a href="https://youtu.be/XtP_YsM0tjs">
@@ -9,6 +16,7 @@
   </a>
 </p>
 
+> **Laboratorio de Seguridad de Redes · GNS3 · FortiOS 7.0.9 · Cisco IOS · Windows Server RDS**
 ---
 
 ## 1. Objetivo del laboratorio
