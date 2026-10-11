@@ -100,5 +100,3 @@ config firewall policy
     next
 end
 FortiGate-B #
-
-NOTA DE ESTADO: esta salida fue compartida antes de que el usuario confirmara que `WAN_to_WEBSERVER_HTTPS` fue deshabilitada desde la GUI. Consulte `estado-final-politicas-confirmado.md` para el estado posterior comunicado.
