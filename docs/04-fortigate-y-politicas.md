@@ -31,6 +31,14 @@ VLAN 10 no se define como subinterfaz del FortiGate en esta topología: la LAN d
 
 ## Inventario de políticas de la práctica
 
+<p align="center"> 
+  
+  ![policies](../images/07-politicas-firewall.png)  
+  
+</p>
+
+---
+
 | ID observado | Nombre | Entrada → salida | Origen → destino | Servicios | NAT | Estado y función |
 |---:|---|---|---|---|---|---|
 | 3 | `WEBSERVER_A_INTERNET` | `port2` → `port1` | `LAN_SERVIDOR` → `all` | `ALL` | ON | Salida de Web Server hacia Internet simulado; política auxiliar existente. |
