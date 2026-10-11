@@ -60,7 +60,7 @@ La comprobación de DHCP debe demostrar:
 4. Ausencia de leases duplicados o direcciones estáticas no documentadas dentro del pool.
 5. Si existe NAT, el efecto sobre la IP origen de los usuarios al atravesar el ISP hacia FortiGate.
 
-La regla SSH por usuario estándar debe ubicarse en el punto real que observa el tráfico de ese usuario. No asumas que FortiGate ve `10.21.75.10` si R1 traduce el origen; comprueba el camino y las exclusiones de NAT en la configuración real. Esta es una decisión de ubicación de política, no una razón para crear una interfaz VLAN10 adicional en FortiGate.
+La regla SSH por usuario estándar debe ubicarse en el punto real que observa el tráfico de ese usuario. No asumas que FortiGate ve `10.21.75.10` si R1 traduce el origen; comprueba el camino y las exclusiones de NAT en la configuración real. Esta es una decisión de ubicación de política.
 
 ## 24.5 Router-ISP y direccionamiento WAN
 
@@ -81,24 +81,3 @@ Los enlaces lógicos registrados son:
 
 El enlace del Router-ISP a Cloud/VMnet8 usa una red de la infraestructura VMware. Esa red resuelve la conectividad del hipervisor; no debe confundirse con los dos enlaces `/30` del diagrama académico.
 
-## 24.6 NAT y retorno de tráfico
-
-Si los usuarios acceden a un servicio detrás de FortiGate a través de R1/ISP, la política de firewall debe corresponder al origen que llega realmente al FortiGate. Revisa:
-
-- inside/outside en R1, si aplica;
-- reglas de NAT y sus exclusiones;
-- rutas estáticas y por defecto;
-- gateway de respuesta en las LAN de servidor;
-- interfaz que registra FortiGate como incoming interface.
-
-No cambies NAT durante la demostración solo para hacer coincidir una captura. Recopila el running-config real de R1 y correlaciónalo con una prueba de origen/destino antes de modificarlo.
-
-## 24.7 Evidencia visual sugerida
-
-1. `show vlan brief` en Switch-A.
-2. `show ip interface brief` en R1-CISCO.
-3. `show ip dhcp binding` con los endpoints pertinentes.
-4. `show ip interface brief` del Router-ISP con enlaces `.22`, `.25` y salida Cloud si está activa.
-5. GUI de FortiGate mostrando `port1`, `port2` y `port3`.
-
-Mantén las salidas reales por separado en `running-configs/cisco-switch/` y `running-configs/router-isp/`. No reemplaces esos exports por ejemplos construidos a mano.
