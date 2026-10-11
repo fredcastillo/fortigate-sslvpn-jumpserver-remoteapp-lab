@@ -1,8 +1,8 @@
 # 02. Arquitectura y topología
 
-## Diagrama lógico corregido
+## Topologia 
+![Topología](images/01-topologia-general.png)
 
-![Topología lógica](images/01-topologia-general.png)
 ![Topología lógica](diagrams/topologia-logica.svg)
 
 La topología debe leerse de izquierda a derecha en el tramo de usuarios/WAN y después desde las interfaces LAN del FortiGate hacia cada servidor. **La LAN de usuarios no está conectada directamente al Router-ISP ni al FortiGate.**
