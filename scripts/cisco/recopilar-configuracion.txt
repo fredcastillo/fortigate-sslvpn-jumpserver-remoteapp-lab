@@ -1,0 +1,14 @@
+CISCO IOS — comandos de recopilación
+
+Ejecutar en modo EXEC privilegiado. Guardar cada salida desde la instancia final P4, con hostname y fecha:
+
+show version
+show ip interface brief
+show running-config
+show vlan brief
+show interfaces trunk
+show ip dhcp binding
+show ip dhcp pool
+show ip route
+
+En el switch, documentar VLAN 10 y puertos asignados. En R1, documentar gateway 10.21.75.1/25, pools DHCP y rutas. En Router-ISP, documentar los dos enlaces /30 y las rutas. Sanitizar cualquier secreto antes de subir los archivos.

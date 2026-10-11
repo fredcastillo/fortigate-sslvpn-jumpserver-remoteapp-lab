@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1060" viewBox="0 0 1800 1060" role="img" aria-labelledby="title desc">
+<title id="title">Topología GNS3 corregida — FortiGate SSL-VPN, Jump Server y RemoteApp</title>
+<desc id="desc">El cliente FortiClient y Browser-PC pertenecen a la LAN de usuarios VLAN 10 y se conectan a Switch-A. Switch-A se conecta a R1-CISCO; R1-CISCO se conecta a Router-ISP; Router-ISP se conecta a FortiGate port1. FortiGate port2 conecta únicamente al Web Server y port3 conecta al Jump Server. El túnel SSL-VPN se representa como overlay sobre el trayecto físico Cliente, Switch-A, R1, ISP y FortiGate.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#10263b"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#172a42"/><stop offset="1" stop-color="#101e31"/></linearGradient>
+  <linearGradient id="redPanel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4b1c2b"/><stop offset="1" stop-color="#241a2d"/></linearGradient>
+  <linearGradient id="bluePanel" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#113d5c"/><stop offset="1" stop-color="#13273f"/></linearGradient>
+  <marker id="arrowBlue" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#62b6ee"/></marker>
+  <marker id="arrowRed" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#ff5268"/></marker>
+  <style>
+    text{font-family:Inter,Segoe UI,Arial,sans-serif}
+    .title{fill:#f1f6ff;font-size:32px;font-weight:750;letter-spacing:.2px}
+    .subtitle{fill:#9fb4d0;font-size:16px}
+    .zone-title{fill:#d9e8ff;font-size:17px;font-weight:750;letter-spacing:1.1px}
+    .node-title{fill:#f5f8ff;font-size:19px;font-weight:750}
+    .body{fill:#d2def1;font-size:14px}
+    .small{fill:#b3c7e2;font-size:12px}
+    .tiny{fill:#8fa8c8;font-size:11px}
+    .chip{fill:#0a1524;stroke:#344b68;stroke-width:1.2}
+    .node{fill:url(#panel);stroke:#527397;stroke-width:1.5}
+    .node-red{fill:url(#redPanel);stroke:#ff5268;stroke-width:1.7}
+    .node-blue{fill:url(#bluePanel);stroke:#46b4f0;stroke-width:1.7}
+    .link{fill:none;stroke:#62b6ee;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .vpn{fill:none;stroke:#ff5268;stroke-width:3.5;stroke-dasharray:10 8;stroke-linecap:round;stroke-linejoin:round}
+    .hairline{stroke:#304862;stroke-width:1}
+  </style>
+</defs>
+<rect width="1800" height="1060" rx="26" fill="url(#bg)"/>
+<path d="M0 128 H1800" stroke="#233a53" stroke-width="1"/>
+<text x="48" y="55" class="title">FortiGate SSL-VPN, Jump Server &amp; Role-Based RemoteApp</text>
+<text x="49" y="86" class="subtitle">Topología física/lógica GNS3 · enlaces reales del laboratorio · VLAN 10 separada de las LAN de servidores</text>
+<rect x="1320" y="38" width="425" height="54" rx="12" fill="#111e30" stroke="#3b526f"/>
+<line x1="1342" y1="57" x2="1390" y2="57" class="link"/><text x="1400" y="62" class="small">Enlace físico/lógico</text>
+<line x1="1563" y1="75" x2="1610" y2="75" class="vpn"/><text x="1620" y="80" class="small">SSL-VPN overlay</text>
+
+<!-- User VLAN zone -->
+<rect x="38" y="160" width="305" height="495" rx="18" fill="#0b1a2b" stroke="#405b79" stroke-width="1.5"/>
+<text x="60" y="195" class="zone-title">LAN DE USUARIOS · VLAN 10</text>
+<text x="60" y="220" class="small">10.21.75.0/25 · gateway R1 10.21.75.1</text>
+<rect x="58" y="246" width="265" height="122" rx="13" class="node-red"/>
+<rect x="72" y="261" width="7" height="92" rx="3" fill="#ff5268"/>
+<text x="94" y="281" class="node-title">CLIENTE-FORTICLIENT</text>
+<text x="94" y="308" class="body">eth0 · 10.21.75.10/25</text>
+<text x="94" y="332" class="small">Cliente de acceso remoto VPN</text>
+<text x="94" y="352" class="tiny">Dirección observada en el laboratorio</text>
+<rect x="58" y="406" width="265" height="110" rx="13" class="node"/>
+<rect x="72" y="421" width="7" height="80" rx="3" fill="#62b6ee"/>
+<text x="94" y="443" class="node-title">BROWSER-PC</text>
+<text x="94" y="470" class="body">10.21.75.110/25</text>
+<text x="94" y="493" class="small">Navegación / administración GUI</text>
+<text x="60" y="557" class="tiny">Ambos endpoints conectan a</text>
+<text x="60" y="575" class="tiny">Switch-A dentro de VLAN 10.</text>
+<text x="60" y="625" class="small">No existe enlace directo a FortiGate.</text>
+
+<!-- Switch -->
+<rect x="380" y="338" width="165" height="150" rx="15" class="node"/>
+<rect x="402" y="358" width="121" height="34" rx="7" fill="#0b1726" stroke="#4f7094"/>
+<g fill="#62b6ee"><rect x="414" y="370" width="12" height="9" rx="2"/><rect x="432" y="370" width="12" height="9" rx="2"/><rect x="450" y="370" width="12" height="9" rx="2"/><rect x="468" y="370" width="12" height="9" rx="2"/><rect x="486" y="370" width="12" height="9" rx="2"/></g>
+<text x="462" y="422" class="node-title" text-anchor="middle">SWITCH-A</text>
+<text x="462" y="447" class="body" text-anchor="middle">Cisco IOSvL2</text>
+<text x="462" y="470" class="small" text-anchor="middle">Acceso · VLAN 10</text>
+
+<!-- R1 -->
+<rect x="610" y="320" width="205" height="185" rx="15" class="node"/>
+<circle cx="712" cy="354" r="19" fill="#0b1726" stroke="#62b6ee" stroke-width="2"/>
+<path d="M701 354 H723 M712 343 V365 M705 347 L701 343 M719 361 L723 365 M705 361 L701 365 M719 347 L723 343" stroke="#62b6ee" stroke-width="2" fill="none"/>
+<text x="712" y="395" class="node-title" text-anchor="middle">R1-CISCO</text>
+<text x="712" y="422" class="body" text-anchor="middle">Gi2/0 · 10.21.75.1/25</text>
+<text x="712" y="447" class="body" text-anchor="middle">Gi1/0 · 203.0.113.21/30</text>
+<text x="712" y="477" class="small" text-anchor="middle">Gateway · DHCP · routing</text>
+
+<!-- ISP -->
+<rect x="875" y="320" width="190" height="185" rx="15" class="node"/>
+<circle cx="970" cy="354" r="19" fill="#0b1726" stroke="#62b6ee" stroke-width="2"/>
+<circle cx="970" cy="354" r="8" stroke="#62b6ee" stroke-width="2" fill="none"/><path d="M951 354 H962 M978 354 H989 M970 335 V346 M970 362 V373" stroke="#62b6ee" stroke-width="2"/>
+<text x="970" y="395" class="node-title" text-anchor="middle">ROUTER-ISP</text>
+<text x="970" y="422" class="body" text-anchor="middle">Gi1/0 · .22/30</text>
+<text x="970" y="447" class="body" text-anchor="middle">Gi2/0 · .25/30</text>
+<text x="970" y="477" class="small" text-anchor="middle">Tránsito WAN simulado</text>
+
+<!-- Fortigate -->
+<rect x="1110" y="290" width="265" height="245" rx="17" class="node-red"/>
+<rect x="1132" y="310" width="221" height="57" rx="9" fill="#0c1725" stroke="#9c334b"/>
+<g fill="#ff5268"><rect x="1150" y="326" width="20" height="9" rx="2"/><rect x="1178" y="326" width="20" height="9" rx="2"/><rect x="1206" y="326" width="20" height="9" rx="2"/><rect x="1234" y="326" width="20" height="9" rx="2"/><rect x="1262" y="326" width="20" height="9" rx="2"/><rect x="1290" y="326" width="20" height="9" rx="2"/></g>
+<text x="1242" y="397" class="node-title" text-anchor="middle">FORTIGATE</text>
+<text x="1242" y="422" class="body" text-anchor="middle">port1 · 203.0.113.26/30</text>
+<text x="1242" y="447" class="body" text-anchor="middle">port2 · 10.21.75.129/29</text>
+<text x="1242" y="472" class="body" text-anchor="middle">port3 · 10.21.75.137/29</text>
+<text x="1242" y="506" class="small" text-anchor="middle">FortiOS 7.0.9 · SSL-VPN</text>
+
+<!-- Web server -->
+<rect x="1460" y="180" width="300" height="175" rx="15" class="node-blue"/>
+<rect x="1480" y="200" width="44" height="52" rx="6" fill="#091725" stroke="#58c4ff"/>
+<g stroke="#58c4ff" stroke-width="2"><line x1="1488" y1="211" x2="1516" y2="211"/><line x1="1488" y1="222" x2="1516" y2="222"/><line x1="1488" y1="233" x2="1516" y2="233"/><circle cx="1514" cy="243" r="2" fill="#58c4ff"/></g>
+<text x="1540" y="218" class="node-title">WEB-SERVER</text>
+<text x="1540" y="244" class="body">10.21.75.130/29</text>
+<text x="1480" y="281" class="body">Gateway · 10.21.75.129</text>
+<text x="1480" y="307" class="small">Sistema de Caja · Apache HTTPS</text>
+<text x="1480" y="330" class="small">Servicios probados: 443 / 3389 / 22</text>
+
+<!-- Jump server -->
+<rect x="1460" y="445" width="300" height="185" rx="15" class="node-blue"/>
+<rect x="1480" y="465" width="44" height="52" rx="6" fill="#091725" stroke="#58c4ff"/>
+<g stroke="#58c4ff" stroke-width="2"><line x1="1488" y1="476" x2="1516" y2="476"/><line x1="1488" y1="487" x2="1516" y2="487"/><line x1="1488" y1="498" x2="1516" y2="498"/><circle cx="1514" cy="508" r="2" fill="#58c4ff"/></g>
+<text x="1540" y="483" class="node-title">JUMP-SRV</text>
+<text x="1540" y="509" class="body">10.21.75.138/29</text>
+<text x="1480" y="546" class="body">Gateway · 10.21.75.137</text>
+<text x="1480" y="572" class="small">Windows Server · AD DS / RDS</text>
+<text x="1480" y="596" class="small">RD Web · RemoteApp por roles</text>
+
+<!-- Physical network connections -->
+<path d="M323 304 H352 V372 H380" class="link"/>
+<path d="M323 458 H352 V444 H380" class="link"/>
+<path d="M545 412 H610" class="link"/>
+<path d="M815 412 H875" class="link"/>
+<path d="M1065 412 H1110" class="link"/>
+<path d="M1375 355 L1460 270" class="link"/>
+<path d="M1375 470 L1460 535" class="link"/>
+<!-- Link labels / subnet labels -->
+<text x="578" y="400" class="tiny" text-anchor="middle">VLAN 10</text>
+<rect x="792" y="354" width="135" height="38" rx="8" class="chip"/>
+<text x="859" y="369" class="tiny" text-anchor="middle">203.0.113.20/30</text><text x="859" y="383" class="tiny" text-anchor="middle">R1 ↔ ISP</text>
+<rect x="1043" y="354" width="135" height="38" rx="8" class="chip"/>
+<text x="1110" y="369" class="tiny" text-anchor="middle">203.0.113.24/30</text><text x="1110" y="383" class="tiny" text-anchor="middle">ISP ↔ FortiGate</text>
+<rect x="1374" y="210" width="103" height="35" rx="8" class="chip"/>
+<text x="1425" y="224" class="tiny" text-anchor="middle">port2</text><text x="1425" y="237" class="tiny" text-anchor="middle">Web LAN</text>
+<rect x="1374" y="575" width="103" height="35" rx="8" class="chip"/>
+<text x="1425" y="589" class="tiny" text-anchor="middle">port3</text><text x="1425" y="602" class="tiny" text-anchor="middle">Jump LAN</text>
+
+<!-- SSL-VPN overlay -->
+<path d="M322 258 C475 116 870 117 1154 291" class="vpn" marker-end="url(#arrowRed)"/>
+<rect x="575" y="143" width="410" height="50" rx="12" fill="#321928" stroke="#ff5268" stroke-width="1.5"/>
+<text x="780" y="164" class="body" text-anchor="middle" style="font-weight:750;fill:#ffdce3">TÚNEL SSL-VPN · TCP/10443</text>
+<text x="780" y="181" class="tiny" text-anchor="middle">Overlay iniciado desde CLIENTE-FORTICLIENT hasta port1</text>
+
+<!-- Architecture notes -->
+<rect x="40" y="705" width="840" height="240" rx="18" fill="#101f32" stroke="#3c5876" stroke-width="1.4"/>
+<text x="67" y="743" class="zone-title">TRAYECTO FÍSICO / UNDERLAY</text>
+<text x="67" y="781" class="node-title" style="font-size:18px">CLIENTE-FORTICLIENT o BROWSER-PC</text>
+<text x="67" y="808" class="body">→ Switch-A (VLAN 10) → R1-CISCO → Router-ISP → FortiGate port1</text>
+<text x="67" y="848" class="small">R1 ↔ ISP: 203.0.113.20/30 · ISP ↔ port1: 203.0.113.24/30</text>
+<text x="67" y="881" class="small">La LAN de usuarios no se conecta al ISP ni al FortiGate de forma directa.</text>
+<text x="67" y="910" class="tiny">203.0.113.0/24 es TEST-NET-3 reservado para documentación; aquí simula enlaces WAN en GNS3.</text>
+
+<rect x="910" y="705" width="850" height="240" rx="18" fill="#101f32" stroke="#3c5876" stroke-width="1.4"/>
+<text x="937" y="743" class="zone-title">ZONAS DETRÁS DEL FORTIGATE</text>
+<rect x="937" y="767" width="370" height="83" rx="11" class="node-blue"/>
+<text x="958" y="794" class="node-title" style="font-size:17px">port2 → WEB-SERVER</text>
+<text x="958" y="820" class="body">10.21.75.128/29 · servidor .130</text>
+<rect x="1330" y="767" width="400" height="83" rx="11" class="node-blue"/>
+<text x="1351" y="794" class="node-title" style="font-size:17px">port3 → JUMP-SRV</text>
+<text x="1351" y="820" class="body">10.21.75.136/29 · servidor .138</text>
+<text x="937" y="883" class="small">SSL-VPN autenticada: ssl.root → port3 → Jump (HTTPS/DNS según política).</text>
+<text x="937" y="910" class="small">Jump → Web: port3 → port2 · HTTPS/443, RDP/3389 y SSH/22; resto denegado.</text>
+
+<text x="45" y="1003" class="subtitle">Arquitectura corregida · topología orientada por enlaces del laboratorio · confirmación final con la captura real de GNS3.</text>
+<text x="45" y="1031" class="tiny">Fred Sneyder Castillo Apolinar · ITLA · Tecnólogo en Seguridad Informática</text>
+</svg>

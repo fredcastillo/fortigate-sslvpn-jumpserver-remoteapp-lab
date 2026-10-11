@@ -1,0 +1,104 @@
+FortiGate-B # show firewall policy
+config firewall policy
+    edit 3
+        set name "WEBSERVER_A_INTERNET"
+        set uuid bf98f650-bc9c-51f1-85e8-98c78d01cba1
+        set srcintf "port2"
+        set dstintf "port1"
+        set action accept
+        set srcaddr "LAN_SERVIDOR"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set nat enable
+    next
+    edit 2
+        set name "WAN_to_WEBSERVER_HTTPS"
+        set uuid c38cafda-be8c-51f1-2f9d-d7255ab83f27
+        set srcintf "port1"
+        set dstintf "port2"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "VIP_HTTPS_WEBSERVER"
+        set schedule "always"
+        set service "HTTPS"
+    next
+    edit 4
+        set status disable
+        set name "SLVPN_to_WEBSERVER_SSH"
+        set uuid 05624854-be95-51f1-afb0-8201a9c34f27
+        set srcintf "ssl.root"
+        set dstintf "port2"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "WEBSERVER"
+        set schedule "always"
+        set service "SSH"
+        set groups "SSLVPN_USERS"
+    next
+    edit 5
+        set name "JUMP_TO_WEBSERVER_P4"
+        set uuid cd263d42-c394-51f1-a943-1d690b5afad2
+        set srcintf "port3"
+        set dstintf "port2"
+        set action accept
+        set srcaddr "JUMP_SERVER"
+        set dstaddr "WEBSERVER"
+        set schedule "always"
+        set service "HTTPS" "RDP" "SSH"
+        set logtraffic all
+    next
+    edit 6
+        set name "JUMP_SETUP_A_INTERNET"
+        set uuid fd14235e-c3b5-51f1-9517-d86fe6c796a5
+        set srcintf "port3"
+        set dstintf "port1"
+        set action accept
+        set srcaddr "JUMP_SERVER"
+        set dstaddr "all"
+        set schedule "always"
+        set service "DNS" "HTTP" "HTTPS"
+        set logtraffic all
+        set nat enable
+    next
+    edit 7
+        set name "SSLVPN_TO_JUMP_HTTPS"
+        set uuid c7abf1ee-c444-51f1-10d5-a2cae87b5257
+        set srcintf "ssl.root"
+        set dstintf "port3"
+        set action accept
+        set srcaddr "SSLVPN_TUNNEL_ADDR1"
+        set dstaddr "JUMP_SERVER"
+        set schedule "always"
+        set service "HTTPS"
+        set logtraffic all
+        set groups "SSLVPN_USERS"
+    next
+    edit 8
+        set name "SSLVPN_TO_JUMP_DNS"
+        set uuid e55650ea-c444-51f1-511d-d2d9bf6e4a93
+        set srcintf "ssl.root"
+        set dstintf "port3"
+        set action accept
+        set srcaddr "SSLVPN_TUNNEL_ADDR1"
+        set dstaddr "JUMP_SERVER"
+        set schedule "always"
+        set service "DNS"
+        set logtraffic all
+        set groups "SSLVPN_USERS"
+    next
+    edit 9
+        set name "JUMP_TO_WEB_DENY_OTHER"
+        set uuid 5cb97748-c445-51f1-2d06-e58f2864d4a6
+        set srcintf "port3"
+        set dstintf "port2"
+        set srcaddr "JUMP_SERVER"
+        set dstaddr "WEBSERVER"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+end
+FortiGate-B #
+
+NOTA DE ESTADO: esta salida fue compartida antes de que el usuario confirmara que `WAN_to_WEBSERVER_HTTPS` fue deshabilitada desde la GUI. Consulte `estado-final-politicas-confirmado.md` para el estado posterior comunicado.

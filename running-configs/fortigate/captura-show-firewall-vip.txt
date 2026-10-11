@@ -1,0 +1,15 @@
+FortiGate-B # show firewall vip
+config firewall vip
+    edit "VIP_HTTPS_WEBSERVER"
+        set uuid 4b6325a2-be8c-51f1-3fa5-6897c9f97e2d
+        set extip 203.0.113.26
+        set mappedip "10.21.75.130"
+        set extintf "port1"
+        set portforward enable
+        set extport 443
+        set mappedport 443
+    next
+end
+FortiGate-B #
+
+El objeto VIP se conserva; el usuario confirmó que la política `WAN_to_WEBSERVER_HTTPS` fue deshabilitada posteriormente desde la GUI.
